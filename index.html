@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bharat Workforce Solutions | Manpower, Engineering & Warehouse Services in Vadodara</title>
+<meta name="description" content="Integrated manpower, engineering, maintenance, warehouse and compliance services for manufacturing, infrastructure and warehousing across India. Based in Vadodara, Gujarat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="logo" href="#top">BHARAT<small>WORKFORCE SOLUTIONS</small></a>
+<ul><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#why">Why us</a></li><li><a href="team.html">Team</a></li><li><a href="#contact">Contact</a></li></ul>
+</nav></div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+<h1>One Partner. Every Industrial Need. Done Right.</h1>
+<p>Your single-window partner for manufacturing, infrastructure and warehousing: manpower, engineering, maintenance, warehouse operations and compliance under one roof.</p>
+<a class="btn" href="#contact">Get a free quote</a><a class="btn alt" href="#services">Our services</a>
+</div></div>
+
+<section id="about"><div class="wrap">
+<h2>About Bharat Workforce Solutions</h2>
+<p style="max-width:70ch">We are a Vadodara-based integrated industrial and infrastructure services company. Manufacturers, project owners and warehouse operators struggle with unprofessional vendors, high compliance risk and juggling many contractors. We were founded to solve exactly that, with civil, electrical and structural engineers, warehouse experts, manpower specialists and corporate advisors (CA, CS, audit) working together.</p>
+<p style="margin-top:12px"><strong>We don't just supply manpower. We deliver professional, compliant and expert-led execution.</strong></p>
+<div class="two" style="margin-top:32px">
+<div class="card"><h3>Our vision</h3><p>To be the most trusted and compliant service partner for manufacturing industries, infrastructure projects and the warehousing sector across India.</p></div>
+<div class="card"><h3>Our mission</h3><p>To let clients focus on core growth while we manage manpower, engineering, maintenance, warehouse operations and compliance with professionalism, statutory integrity and expert-led solutions.</p></div>
+</div>
+<div class="vals"><span>Professionalism</span><span>Compliance First</span><span>Expertise</span><span>Accountability</span></div>
+</div></section>
+
+<section id="services" class="alt"><div class="wrap">
+<h2>Our integrated services</h2>
+<div class="three">
+<div class="card"><h3>Manpower & facility</h3><ul><li>Skilled, semi-skilled and unskilled manpower</li><li>Housekeeping and facility management</li><li>Deployment for plants, project sites and warehouses</li></ul></div>
+<div class="card"><h3>Engineering, procurement & maintenance</h3><ul><li>Civil maintenance</li><li>Electrical maintenance, design and consultancy</li><li>Energy audits</li><li>Structural consultancy</li><li>Procurement support</li></ul></div>
+<div class="card"><h3>Warehouse & project operations</h3><ul><li>Complete warehouse management</li><li>Manpower and operations for logistics parks</li><li>Site support for infrastructure projects</li></ul></div>
+</div></div></section>
+
+<section id="why"><div class="wrap">
+<h2>Why clients trust us</h2>
+<ul class="tick"><li>One partner for plants, project sites and warehouses</li><li>Compliance guaranteed, risk minimised</li><li>Multi-domain expert team, not just labour suppliers</li><li>Vadodara-based, pan-India service capability</li></ul>
+</div></section>
+
+<section id="contact" class="alt"><div class="wrap two">
+<div>
+<h2>Let's build a compliant and professional operation together</h2>
+<p><strong>Address:</strong> F-07, Mahalakshmi Park, Near Bapod Jakatnaka, Waghodiya Road, Vadodara, Gujarat - 390019</p>
+<p><strong>Phone:</strong> <a href="tel:+919825169883">+91 98251 69883</a> | <a href="tel:+919714441041">+91 97144 41041</a></p>
+<p><strong>Email:</strong> <a href="mailto:bharatworkforcesolutions26@gmail.com">bharatworkforcesolutions26@gmail.com</a></p>
+</div>
+<!-- Replace YOUR_FORM_ID with your free Formspree form ID (formspree.io) -->
+<form id="f" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input name="name" placeholder="Your name" required aria-label="Your name">
+<input name="company" placeholder="Company" aria-label="Company">
+<input name="phone" type="tel" placeholder="Phone" required aria-label="Phone">
+<input name="email" type="email" placeholder="Email" required aria-label="Email">
+<select name="service" aria-label="Service needed"><option>Manpower & facility</option><option>Engineering & maintenance</option><option>Warehouse operations</option><option>Compliance advisory</option></select>
+<textarea name="message" rows="4" placeholder="Tell us about your requirement" required aria-label="Message"></textarea>
+<button class="btn" type="submit">Send enquiry</button>
+<p id="msg" role="status"></p>
+</form>
+</div></section>
+</main>
+
+<footer><div class="wrap">© <span id="y"></span> Bharat Workforce Solutions, Vadodara, Gujarat. All rights reserved.</div></footer>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const f=document.getElementById('f'),m=document.getElementById('msg');
+f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  try{
+    const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
+    if(r.ok){m.textContent='Thank you. We will contact you shortly.';f.reset()}
+    else m.textContent='Could not send. Please call or email us directly.';
+  }catch(_){m.textContent='Could not send. Please call or email us directly.'}
+});
+</script>
+</body>
+</html>

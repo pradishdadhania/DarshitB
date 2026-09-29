@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Team | Bharat Workforce Solutions</title>
+<meta name="description" content="Meet the engineers, warehouse experts, manpower specialists and corporate advisors behind Bharat Workforce Solutions.">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><div class="wrap"><nav>
+<a class="logo" href="index.html">BHARAT<small>WORKFORCE SOLUTIONS</small></a>
+<ul><li><a href="index.html#about">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#why">Why us</a></li><li><a href="team.html">Team</a></li><li><a href="index.html#contact">Contact</a></li></ul>
+</nav></div></header>
+<main>
+<div class="pagehead"><div class="wrap"><h1>Meet our team</h1><p>Domain experts under one roof, so you deal with one accountable partner.</p></div></div>
+<section><div class="wrap">
+<div class="filters" id="filters" role="group" aria-label="Filter team by department"></div>
+<div class="team" id="team"></div>
+</div></section>
+<section class="alt"><div class="wrap"><h2>Want to work with us?</h2><p>We are always looking for skilled engineers and site professionals.</p><br><a class="btn" href="index.html#contact">Get in touch</a></div></section>
+</main>
+<footer><div class="wrap">© <span id="y"></span> Bharat Workforce Solutions, Vadodara, Gujarat. All rights reserved.</div></footer>
+<script>
+/* EDIT THIS LIST: add or remove people. photo: "images/name.jpg" or leave "" for initials */
+const TEAM=[
+ {name:"Name Here",role:"Founder & Director",dept:"Leadership",bio:"Short line about experience.",photo:""},
+ {name:"Name Here",role:"Civil Engineer",dept:"Engineering",bio:"Civil maintenance and site execution.",photo:""},
+ {name:"Name Here",role:"Electrical Engineer",dept:"Engineering",bio:"Electrical design, maintenance and energy audits.",photo:""},
+ {name:"Name Here",role:"Structural Engineer",dept:"Engineering",bio:"Structural consultancy and safety.",photo:""},
+ {name:"Name Here",role:"Warehouse Management Expert",dept:"Warehouse",bio:"Warehouse and logistics park operations.",photo:""},
+ {name:"Name Here",role:"Manpower Specialist",dept:"Manpower",bio:"Recruitment and deployment for plants and sites.",photo:""},
+ {name:"Name Here",role:"Chartered Accountant",dept:"Compliance",bio:"Statutory compliance and audits.",photo:""},
+ {name:"Name Here",role:"Company Secretary",dept:"Compliance",bio:"Regulatory filings and governance.",photo:""}
+];
+const box=document.getElementById('team'),fl=document.getElementById('filters');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function show(d){
+ box.innerHTML=TEAM.filter(p=>d==='All'||p.dept===d).map(p=>{
+  const ini=p.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  return `<article class="member"><div class="avatar">${p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.name)}">`:ini}</div><h3>${esc(p.name)}</h3><div class="role">${esc(p.role)}</div><p>${esc(p.bio)}</p></article>`}).join('');
+ fl.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.textContent===d));
+}
+['All',...new Set(TEAM.map(p=>p.dept))].forEach(d=>{
+ const b=document.createElement('button');b.textContent=d;b.onclick=()=>show(d);fl.appendChild(b)});
+show('All');
+document.getElementById('y').textContent=new Date().getFullYear();
+</script></body></html>
